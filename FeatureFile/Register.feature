@@ -25,3 +25,13 @@ Scenario: Login using datatable
 	And user enter credentials as 
 		|lalitha|
 		|Password123|
+@search
+Scenario: Search product
+When user enters the product
+|Head|
+And user clicks find details
+Then Add product to cart
+
+
+
+ 	

@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -114,6 +115,22 @@ public class StepDefine
 	{
 		driver.findElement(By.name("Submit")).click();
 		System.out.println("user registered successfully");
+	}
+	@When("^user enters the product$")
+	public void enterproduct(DataTable data)
+	{
+		List<String> prod = data.asList(String.class);
+		driver.findElement(By.name("products")).sendKeys(prod.get(0));
+	}
+	@And("^user clicks find details$")
+	public void findDetails()
+	{
+		driver.findElement(By.xpath("/html/body/div[1]/form/input")).click();
+	}
+	@Then("^Add product to cart$")
+	public void Addtocart()
+	{
+		driver.findElement(By.xpath("/html/body/section/div/div/div[2]/div/div/div/div[2]/center/a")).click();
 	}
 	
 	
